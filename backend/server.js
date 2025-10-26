@@ -41,10 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Anslut till MongoDB-databas
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/streetbites", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/streetbites")
   .then(() => {
     console.log("✅ Ansluten till MongoDB");
   })
