@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platser - Street Bites Admin</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Street Bites Admin</h1>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="menu.html" class="nav-link">Meny</a>
+        <a href="orders.html" class="nav-link">Beställningar</a>
+        <a href="locations.html" class="nav-link active">Platser</a>
+        <button id="logoutBtn" class="btn btn-secondary">Logga ut</button>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>Platser</h2>
+          <p>Hantera food truck-platser och öppettider</p>
+        </div>
+
+        <!-- Under Construction Message -->
+        <div class="construction-message">
+          <h3>Under uppdatering</h3>
+          <p>Platshanteringssidan är för närvarande under utveckling.</p>
+          <p>
+            Denna funktionalitet kommer att implementeras i en framtida version.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/locations.js"></script>
+  </body>
+</html>
