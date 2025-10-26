@@ -137,7 +137,8 @@ class AuthService {
    * @returns {Promise<Array>} - Orders array
    */
   async getAllOrders() {
-    return this.authenticatedRequest("/orders");
+    const response = await this.authenticatedRequest("/orders");
+    return response.data;
   }
 
   /**
@@ -145,7 +146,8 @@ class AuthService {
    * @returns {Promise<Array>} - Categories array
    */
   async getAllCategories() {
-    return this.authenticatedRequest("/menu/categories");
+    const response = await this.authenticatedRequest("/menu/categories");
+    return response.data;
   }
 
   /**
@@ -154,10 +156,11 @@ class AuthService {
    * @returns {Promise<Object>} - Created category
    */
   async createCategory(categoryData) {
-    return this.authenticatedRequest("/menu/categories", {
+    const response = await this.authenticatedRequest("/menu/categories", {
       method: "POST",
       body: JSON.stringify(categoryData),
     });
+    return response.data;
   }
 
   /**
@@ -167,10 +170,14 @@ class AuthService {
    * @returns {Promise<Object>} - Updated category
    */
   async updateCategory(categoryId, categoryData) {
-    return this.authenticatedRequest(`/menu/categories/${categoryId}`, {
-      method: "PUT",
-      body: JSON.stringify(categoryData),
-    });
+    const response = await this.authenticatedRequest(
+      `/menu/categories/${categoryId}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(categoryData),
+      }
+    );
+    return response.data;
   }
 
   /**
@@ -189,7 +196,8 @@ class AuthService {
    * @returns {Promise<Array>} - Menu items array
    */
   async getAllMenuItems() {
-    return this.authenticatedRequest("/menu/items");
+    const response = await this.authenticatedRequest("/menu/items");
+    return response.data;
   }
 
   /**
@@ -198,10 +206,11 @@ class AuthService {
    * @returns {Promise<Object>} - Created menu item
    */
   async createMenuItem(itemData) {
-    return this.authenticatedRequest("/menu/items", {
+    const response = await this.authenticatedRequest("/menu/items", {
       method: "POST",
       body: JSON.stringify(itemData),
     });
+    return response.data;
   }
 
   /**
@@ -211,10 +220,11 @@ class AuthService {
    * @returns {Promise<Object>} - Updated menu item
    */
   async updateMenuItem(itemId, itemData) {
-    return this.authenticatedRequest(`/menu/items/${itemId}`, {
+    const response = await this.authenticatedRequest(`/menu/items/${itemId}`, {
       method: "PUT",
       body: JSON.stringify(itemData),
     });
+    return response.data;
   }
 
   /**
@@ -246,7 +256,8 @@ class AuthService {
    * @returns {Promise<Array>} - Locations array
    */
   async getAllLocations() {
-    return this.authenticatedRequest("/locations");
+    const response = await this.authenticatedRequest("/locations");
+    return response.data;
   }
 
   /**

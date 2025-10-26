@@ -31,7 +31,13 @@ const menuItemSchema = new mongoose.Schema(
       trim: true,
       validate: {
         validator: function (v) {
-          return !v || /^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(v);
+          if (!v) return true; // Tom URL är ok
+          try {
+            const url = new URL(v);
+            return url.protocol === "http:" || url.protocol === "https:";
+          } catch {
+            return false;
+          }
         },
         message: "Bild-URL måste vara giltig",
       },
@@ -48,16 +54,7 @@ const menuItemSchema = new mongoose.Schema(
       {
         type: String,
         trim: true,
-        enum: [
-          "gluten",
-          "laktos",
-          "nötter",
-          "ägg",
-          "fisk",
-          "skaldjur",
-          "soja",
-          "jordnötter",
-        ],
+        lowercase: true, // Konvertera automatiskt till små bokstäver
       },
     ],
     preparationTime: {

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street Bites - Admin Meny</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>🚚 Street Bites Admin</h1>
+      </div>
+
+      <!-- Hamburger-meny knapp för mobil/tablet -->
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="menu.html" class="nav-link active">Meny</a>
+        <a href="orders.html" class="nav-link">Beställningar</a>
+        <a href="locations.html" class="nav-link">Platser</a>
+        <button id="logoutBtn" class="btn btn-secondary">Logga ut</button>
+      </div>
+    </nav>
+
+    <!-- Overlay för mobil-meny -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h2>Menyhantering</h2>
+        <p>Hantera kategorier och maträtter för Street Bites</p>
+      </div>
+
+      <!-- Kategorier sektion -->
+      <div class="section2">
+        <div class="section-header">
+          <h3>Kategorier</h3>
+          <button id="addCategoryBtn" class="btn btn-primary">
+            Lägg till kategori
+          </button>
+        </div>
+
+        <div id="categoriesList" class="categories-list">
+          <p>Laddar kategorier...</p>
+        </div>
+      </div>
+
+      <!-- Maträtter sektion -->
+      <div class="section2">
+        <div class="section-header">
+          <h3>Maträtter</h3>
+          <button id="addMenuItemBtn" class="btn btn-primary">
+            Lägg till maträtt
+          </button>
+        </div>
+
+        <div id="menuItemsList" class="menu-items-list">
+          <p>Laddar maträtter...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal för kategori -->
+    <div id="categoryModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="categoryModalTitle">Lägg till kategori</h3>
+          <button class="modal-close" id="categoryModalClose">&times;</button>
+        </div>
+        <form id="categoryForm" class="form">
+          <div class="form-group">
+            <label for="categoryName">Namn</label>
+            <input type="text" id="categoryName" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="categoryDescription">Beskrivning</label>
+            <textarea
+              id="categoryDescription"
+              name="description"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="categoryDisplayOrder">Visningsordning</label>
+            <input
+              type="number"
+              id="categoryDisplayOrder"
+              name="displayOrder"
+              min="1"
+              value="1"
+            />
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="categoryIsActive"
+                name="isActive"
+                checked
+              />
+              Aktiv kategori
+            </label>
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="categoryCancelBtn"
+            >
+              Avbryt
+            </button>
+            <button type="submit" class="btn btn-primary" id="categorySaveBtn">
+              Spara
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal för maträtt -->
+    <div id="menuItemModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="menuItemModalTitle">Lägg till maträtt</h3>
+          <button class="modal-close" id="menuItemModalClose">&times;</button>
+        </div>
+        <form id="menuItemForm" class="form">
+          <div class="form-group">
+            <label for="menuItemName">Namn</label>
+            <input type="text" id="menuItemName" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="menuItemDescription">Beskrivning</label>
+            <textarea
+              id="menuItemDescription"
+              name="description"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="menuItemPrice">Pris (kr)</label>
+            <input
+              type="number"
+              id="menuItemPrice"
+              name="price"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="menuItemCategory">Kategori</label>
+            <select id="menuItemCategory" name="categoryId" required>
+              <option value="">Välj kategori...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="menuItemImage">Bild-URL (valfri)</label>
+            <input
+              type="url"
+              id="menuItemImage"
+              name="image"
+              placeholder="https://example.com/bild.jpg"
+            />
+            <small class="form-help"
+              >Lämna tomt om du inte vill lägga till en bild</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="menuItemAllergens">Allergener</label>
+            <input
+              type="text"
+              id="menuItemAllergens"
+              name="allergens"
+              placeholder="Gluten, laktos, nötter..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="menuItemPrepTime">Tillagningstid (minuter)</label>
+            <input
+              type="number"
+              id="menuItemPrepTime"
+              name="preparationTime"
+              min="1"
+              value="15"
+            />
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="menuItemIsAvailable"
+                name="isAvailable"
+                checked
+              />
+              Tillgänglig
+            </label>
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="menuItemCancelBtn"
+            >
+              Avbryt
+            </button>
+            <button type="submit" class="btn btn-primary" id="menuItemSaveBtn">
+              Spara
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/menu.js"></script>
+  </body>
+</html>
