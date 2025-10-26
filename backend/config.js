@@ -5,7 +5,7 @@ export default {
     process.env.MONGODB_URI || "mongodb://localhost:27017/streetbites",
 
   // JWT-konfiguration för autentisering
-  jwtSecret: process.env.JWT_SECRET || "street-bites-super-secret-key-2025",
+  jwtSecret: process.env.JWT_SECRET || "street-bites-key-2025",
   jwtExpiration: process.env.JWT_EXPIRATION || "24h",
 
   // serverkonfiguration
@@ -23,7 +23,7 @@ export default {
   maxFileSize: process.env.MAX_FILE_SIZE || "5MB",
   allowedImageTypes: ["image/jpeg", "image/png", "image/webp"],
 
-  // Affärslogik
+  //Affärslogik
   defaultPreparationTime: parseInt(process.env.DEFAULT_PREP_TIME) || 15, // minuter
   orderNumberPrefix: process.env.ORDER_PREFIX || "SB",
 

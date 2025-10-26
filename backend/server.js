@@ -10,6 +10,7 @@ import authRoutes from "./routes/auth.js";
 import menuRoutes from "./routes/menu.js";
 import orderRoutes from "./routes/orders.js";
 import locationRoutes from "./routes/locations.js";
+import protectedRoutes from "./routes/protected.js";
 
 // Ladda miljövariabler från .env-fil
 dotenv.config();
@@ -57,6 +58,7 @@ app.use("/api/auth", authRoutes); // autentisering (registrering, inloggning)
 app.use("/api/menu", menuRoutes); // meny-hantering
 app.use("/api/orders", orderRoutes); //beställnings-hantering
 app.use("/api/locations", locationRoutes); //plats-hantering
+app.use("/api/protected", protectedRoutes); // skyddade endpoints
 
 // Root endpoint, API-information
 app.get("/", (req, res) => {
@@ -82,6 +84,10 @@ app.get("/", (req, res) => {
       locations: {
         getAll: "GET /api/locations",
         getActive: "GET /api/locations/active",
+      },
+      protected: {
+        test: "GET /api/protected",
+        profile: "GET /api/protected/profile",
       },
     },
   });
