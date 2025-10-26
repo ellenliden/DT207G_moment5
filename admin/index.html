@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street Bites - Admin Login</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="logo">
+          <h1>🚚 Street Bites</h1>
+          <p>Administrationsgränssnitt</p>
+        </div>
+
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="email">E-postadress</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Lösenord</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Logga in</button>
+        </form>
+
+        <div
+          id="errorMessage"
+          class="error-message"
+          style="display: none"
+        ></div>
+
+        <div class="login-footer">
+          <p>Endast för auktoriserad personal</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/navigation.js"></script>
+  </body>
+</html>

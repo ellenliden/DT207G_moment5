@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street Bites - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>🚚 Street Bites Admin</h1>
+      </div>
+
+      <!-- Hamburger-meny knapp för mobil/tablet -->
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="menu.html" class="nav-link">Meny</a>
+        <a href="orders.html" class="nav-link">Beställningar</a>
+        <a href="locations.html" class="nav-link">Platser</a>
+        <button id="logoutBtn" class="btn btn-secondary">Logga ut</button>
+      </div>
+    </nav>
+
+    <!-- Overlay för mobil-meny -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h2>Dashboard</h2>
+        <p>Välkommen till Street Bites administrationsgränssnitt</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <h3 id="totalOrders">-</h3>
+            <p>Totalt beställningar</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⏰</div>
+          <div class="stat-content">
+            <h3 id="pendingOrders">-</h3>
+            <p>Väntande beställningar</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🍔</div>
+          <div class="stat-content">
+            <h3 id="totalMenuItems">-</h3>
+            <p>Menyprodukter</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📍</div>
+          <div class="stat-content">
+            <h3 id="activeLocations">-</h3>
+            <p>Aktiva platser</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-sections">
+        <div class="section">
+          <h3>Senaste beställningar</h3>
+          <div id="recentOrders" class="orders-list">
+            <p>Laddar...</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Snabbåtgärder</h3>
+          <div class="quick-actions">
+            <a href="menu.html" class="btn btn-primary">Hantera meny</a>
+            <a href="orders.html" class="btn btn-primary">Visa beställningar</a>
+            <a href="locations.html" class="btn btn-primary">Hantera platser</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/navigation.js"></script>
+  </body>
+</html>
