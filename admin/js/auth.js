@@ -6,7 +6,7 @@
 class AuthService {
   constructor() {
     // API base URL - ändra till din backend URL
-    this.API_BASE_URL = "http://localhost:3000/api";
+    this.API_BASE_URL = "https://dt207g-moment5.onrender.com/api";
     this.token = localStorage.getItem("adminToken");
   }
 
